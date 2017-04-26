@@ -18,6 +18,14 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    public User() {
+    }
+
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -46,4 +54,17 @@ public class User {
                 ", email='" + email + '\'' +
                 '}';
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        if (!id.equals(user.id)) return false;
+        if (name != null ? !name.trim().equals(user.name.trim()) : user.name != null) return false;
+        return email != null ? email.trim().equals(user.email.trim()) : user.email == null;
+    }
+
 }

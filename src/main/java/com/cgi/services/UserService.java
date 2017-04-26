@@ -11,4 +11,5 @@ public interface UserService {
 
     User create(User u);
 
+    List<User> findByName(String name);
 }

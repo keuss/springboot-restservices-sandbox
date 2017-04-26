@@ -19,14 +19,19 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        LOGGER.debug("Call findAll");
+        LOGGER.info("Call findAll");
         return userRepository.findAll();
     }
 
     @Override
     public User create(User u) {
-        LOGGER.debug("Call create with {}", u);
+        LOGGER.info("Call create with {}", u);
         return userRepository.save(u);
     }
 
+    @Override
+    public List<User> findByName(String name) {
+        LOGGER.info("Call findByName with {}", name);
+        return userRepository.findByName(name);
+    }
 }
