@@ -37,6 +37,15 @@ COMMENT ON COLUMN public.users.name IS 'user''s name';
 COMMENT ON COLUMN public.users.email IS 'user''s mail';
 ```
 
+## JSON user
+
+```
+{
+ "name": "steve",
+ "email": "steve@gmail.com"
+}
+```
+
 ## Links
 
  - https://github.com/spring-guides/gs-accessing-data-jpa
