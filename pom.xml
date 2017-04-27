@@ -19,6 +19,8 @@
 
   <dependencies>
     <!-- Setup Spring Data JPA Repository support -->
+    <!-- spring-boot-starter-data-jpa ‘starters’ you will automatically get a dependency to tomcat-jdbc (The Tomcat JDBC Connection Pool) -->
+    <!-- The JDBC Connection Pool org.apache.tomcat.jdbc.pool is a replacement or an alternative to the Apache Commons DBCP connection pool. -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -27,6 +29,11 @@
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
       <scope>runtime</scope>
     </dependency>
     <!-- Setup Spring MVC & REST, use Embedded Tomcat -->

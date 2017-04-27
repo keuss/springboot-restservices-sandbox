@@ -1,0 +1,1 @@
+INSERT INTO public.users(id, name, email) VALUES (0, 'gui', 'gui@gmail.com');
