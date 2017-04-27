@@ -37,7 +37,7 @@ COMMENT ON COLUMN public.users.name IS 'user''s name';
 COMMENT ON COLUMN public.users.email IS 'user''s mail';
 ```
 
-### Links
+## Links
 
  - https://github.com/spring-guides/gs-accessing-data-jpa
  - https://github.com/spring-guides/gs-rest-service
