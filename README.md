@@ -50,3 +50,6 @@ COMMENT ON COLUMN public.users.email IS 'user''s mail';
 
  - https://github.com/spring-guides/gs-accessing-data-jpa
  - https://github.com/spring-guides/gs-rest-service
+ - https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+ - https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
+ - https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html
