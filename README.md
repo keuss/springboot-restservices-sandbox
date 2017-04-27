@@ -9,7 +9,7 @@ springboot-restservices-sandbox with :
 ## Build and RUN
 
  - `mvn clean package`
- - java -jar target/springboot-restservices-sandbox-0.1.0.jar
+ - `java -jar target/springboot-restservices-sandbox-0.1.0.jar` (use Embedded Tomcat), see http://localhost:8080/users
  
 ## Tests services & controllers
 
@@ -36,3 +36,8 @@ COMMENT ON COLUMN public.users.id IS 'user''s internal id';
 COMMENT ON COLUMN public.users.name IS 'user''s name';
 COMMENT ON COLUMN public.users.email IS 'user''s mail';
 ```
+
+### Links
+
+ - https://github.com/spring-guides/gs-accessing-data-jpa
+ - https://github.com/spring-guides/gs-rest-service
