@@ -14,7 +14,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = com.cgi.Application.class, webEnvironment = SpringBootTest.WebEnvironment.NONE)
+@SpringBootTest(classes = com.cgi.Application.class)
 public class UserServiceTI {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceTI.class);
