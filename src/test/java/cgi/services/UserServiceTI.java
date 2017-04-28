@@ -41,6 +41,6 @@ public class UserServiceTI {
     public void findByNameTest() throws Exception {
         // find
         // userService.findByName("steve").stream().forEach(System.out::println);
-        Assert.assertTrue(!userService.findByName("steve").isEmpty());
+        Assert.assertTrue(!userService.findByName("gui").isEmpty());
     }
 }
