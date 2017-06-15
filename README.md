@@ -9,13 +9,13 @@ springboot-restservices-sandbox with :
 ## Build and RUN
 
  - `mvn clean package`
- - `java -jar target/springboot-restservices-sandbox-0.1.0.jar` (use Embedded Tomcat), see http://localhost:8080/users
+ - Use classic Tomcat 8.5, see http://localhost:8080/springboot-restservices-sandbox-0.1.0/users
  
 ## Tests services & controllers
 
  - TI with PostgreSQL (see application.properties)
  - TU with H2 (see test.properties and test.sql for loading H2)
- - Swagger : http://localhost:8080/swagger-ui.html
+ - Swagger : http://localhost:8080/springboot-restservices-sandbox-0.1.0/swagger-ui.html
  
 ## DDL PostgreSQL
 
