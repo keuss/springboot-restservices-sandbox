@@ -5,6 +5,8 @@ springboot-restservices-sandbox with :
  - REST basic controller (GET & POST)
  - Spring DATA add PostgreSQL database + h2 for testing
  - Swagger2
+ - Spring Boot use Tomcat 8.5 by default (servlet api 3.1)
+ - Spring Boot Dependencies for 1.5.x see here : https://github.com/spring-projects/spring-boot/blob/1.5.x/spring-boot-dependencies/pom.xml
  
 ## Build and RUN
 
@@ -53,3 +55,4 @@ COMMENT ON COLUMN public.users.email IS 'user''s mail';
  - https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
  - https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
  - https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html
+ - https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-servlet-containers.html
