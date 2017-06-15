@@ -13,7 +13,6 @@ springboot-restservices-sandbox with :
  
 ## Tests services & controllers
 
- - TI with PostgreSQL (see application.properties)
  - TU with H2 (see test.properties and test.sql for loading H2)
  - Swagger : http://localhost:8080/springboot-restservices-sandbox-0.1.0/swagger-ui.html
  
