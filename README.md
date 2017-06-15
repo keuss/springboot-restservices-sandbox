@@ -5,19 +5,18 @@ springboot-restservices-sandbox with :
  - REST basic controller (GET & POST)
  - Spring DATA add PostgreSQL database + h2 for testing
  - Swagger2
- - Spring Boot use Tomcat 8.5 by default (servlet api 3.1)
  - Spring Boot Dependencies for 1.5.x see here : https://github.com/spring-projects/spring-boot/blob/1.5.x/spring-boot-dependencies/pom.xml
  
 ## Build and RUN
 
  - `mvn clean package`
- - `java -jar target/springboot-restservices-sandbox-0.1.0.jar` (use Embedded Tomcat), see http://localhost:8080/users
+ - Use classic Tomcat 8.5, see http://localhost:8080/springboot-restservices-sandbox-0.1.0/users
  
 ## Tests services & controllers
 
  - TI with PostgreSQL (see application.properties)
  - TU with H2 (see test.properties and test.sql for loading H2)
- - Swagger : http://localhost:8080/swagger-ui.html
+ - Swagger : http://localhost:8080/springboot-restservices-sandbox-0.1.0/swagger-ui.html
  
 ## DDL PostgreSQL
 
