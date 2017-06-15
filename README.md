@@ -55,3 +55,4 @@ COMMENT ON COLUMN public.users.email IS 'user''s mail';
  - https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
  - https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html
  - https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-servlet-containers.html
+ - http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#howto-create-a-deployable-war-file
