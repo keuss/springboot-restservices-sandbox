@@ -1,6 +1,7 @@
 package com.cgi.services;
 
 import com.cgi.entities.User;
+import com.cgi.entities.UserDetail;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -28,6 +29,7 @@ public class UserServiceTI {
         User user = new User();
         user.setName("steve");
         user.setEmail("steve@gmail.com");
+        user.setUserDetail(new UserDetail(0, 2, 3));
         userService.create(user);
 
         // userService.findAll().stream().forEach(System.out::println);

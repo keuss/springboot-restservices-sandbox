@@ -1,5 +1,7 @@
 package com.cgi.entities;
 
+import com.cgi.utils.JpaJsonConverter;
+
 import javax.persistence.*;
 
 @Entity
@@ -18,6 +20,10 @@ public class User {
     @Column(name = "email")
     private String email;
 
+    @Column(name="userdetail")
+    @Convert(converter = UserDetailConverter.class)
+    private UserDetail userDetail;
+
     public User() {
     }
 
@@ -25,6 +31,8 @@ public class User {
         this.name = name;
         this.email = email;
     }
+
+    public static class UserDetailConverter extends JpaJsonConverter<UserDetail> {}
 
     public Integer getId() {
         return id;
@@ -46,12 +54,21 @@ public class User {
         this.email = email;
     }
 
+    public UserDetail getUserDetail() {
+        return userDetail;
+    }
+
+    public void setUserDetail(UserDetail userDetail) {
+        this.userDetail = userDetail;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
+                ", userDetail=" + userDetail +
                 '}';
     }
 
@@ -62,9 +79,9 @@ public class User {
 
         User user = (User) o;
 
-        if (!id.equals(user.id)) return false;
-        if (name != null ? !name.trim().equals(user.name.trim()) : user.name != null) return false;
-        return email != null ? email.trim().equals(user.email.trim()) : user.email == null;
+        if (name != null ? !name.equals(user.name) : user.name != null) return false;
+        return email != null ? email.equals(user.email) : user.email == null;
+
     }
 
 }

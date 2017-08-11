@@ -1,6 +1,7 @@
 package com.cgi.services;
 
 import com.cgi.entities.User;
+import com.cgi.entities.UserDetail;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,6 +31,7 @@ public class UserServiceTU {
         User user = new User();
         user.setName("steve in memory");
         user.setEmail("steve-mem@gmail.com");
+        user.setUserDetail(new UserDetail(1, 2, 3));
         userService.create(user);
 
         Optional<User> mayBeUser = userService.findAll().stream().filter(u -> u.equals(user)).findFirst();
@@ -39,6 +41,7 @@ public class UserServiceTU {
 
     @Test
     public void findByNameTest() throws Exception {
+        LOGGER.info("##### {}", userService.findByName("gui").get(0).getUserDetail());
         Assert.assertTrue(!userService.findByName("gui").isEmpty());
     }
 }

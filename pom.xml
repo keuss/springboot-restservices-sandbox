@@ -32,6 +32,8 @@
       <scope>runtime</scope>
     </dependency>
     <!-- Setup Spring MVC & REST, use Embedded Tomcat -->
+    <!-- Spring uses the Jackson JSON library to automatically marshal
+    instances into JSON -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
