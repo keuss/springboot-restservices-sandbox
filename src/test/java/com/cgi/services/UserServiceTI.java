@@ -2,6 +2,7 @@ package com.cgi.services;
 
 import com.cgi.entities.User;
 import com.cgi.entities.UserDetail;
+import com.google.common.primitives.Ints;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,11 +26,14 @@ public class UserServiceTI {
     @Test
     public void createUserTest() throws Exception {
 
+        int[] followers = {1,2};
+        int[] subscribers = {10,20,30};
+
         // create
         User user = new User();
         user.setName("steve");
         user.setEmail("steve@gmail.com");
-        user.setUserDetail(new UserDetail(0, 2, 3));
+        user.setUserDetail(new UserDetail(0, 2, 3, Ints.asList(followers), Ints.asList(subscribers)));
         userService.create(user);
 
         // userService.findAll().stream().forEach(System.out::println);
