@@ -16,32 +16,26 @@ springboot-restservices-sandbox with :
  - TU with H2 (see test.properties and test.sql for loading H2)
  - Swagger : http://localhost:8080/swagger-ui.html
  
-## DDL PostgreSQL
+## DATA h2
 
 ```
-CREATE TABLE public.users
-(
-  id integer NOT NULL DEFAULT nextval('users_id_seq'::regclass), -- user's internal id
-  name character(20), -- user's name
-  email character(40), -- user's mail
-  CONSTRAINT id_pk PRIMARY KEY (id)
-)
-WITH (
-  OIDS=FALSE
-);
-ALTER TABLE public.users
-  OWNER TO "sandbox-user";
-COMMENT ON COLUMN public.users.id IS 'user''s internal id';
-COMMENT ON COLUMN public.users.name IS 'user''s name';
-COMMENT ON COLUMN public.users.email IS 'user''s mail';
+INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gmail.com', '{"postsNb": 10, "followersNb": 3, "subscribersNb": 2, "followers": [1, 2, 3], "subscribers": [10, 20]}');
 ```
 
 ## JSON user
 
 ```
 {
- "name": "steve",
- "email": "steve@gmail.com"
+	"id": 0,
+	"name": "gui",
+	"email": "gui@gmail.com",
+	"userDetail": {
+		"postsNb": 11,
+		"followersNb": 5,
+		"subscribersNb": 3,
+		"followers": [1, 2, 3, 4, 5],
+		"subscribers": [10, 20, 30]
+	}
 }
 ```
 
