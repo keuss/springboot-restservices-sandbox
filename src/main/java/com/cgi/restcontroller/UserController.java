@@ -27,6 +27,14 @@ public class UserController {
         return userService.findAll();
     }
 
+    @RequestMapping(method = RequestMethod.GET, value="/user/followers/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public List<User> findFollowers(@PathVariable("userId") Integer userId) {
+        LOGGER.info("Call for findFollowers ...");
+        //FIXME : probably add paging stuff !
+        return userService.findFollowers(userId);
+    }
+
     @RequestMapping(method = RequestMethod.POST, value="/user", headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public User addUser(@Valid @RequestBody User user, BindingResult bindingResults) throws Exception {

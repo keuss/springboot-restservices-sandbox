@@ -1,1 +1,0 @@
-INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gmail.com', '{"postsNb": 11, "followersNb": 5, "subscribersNb": 3, "followers": [1, 2, 3, 4, 5], "subscribers": [10, 20, 30]}');

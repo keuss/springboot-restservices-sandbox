@@ -12,4 +12,8 @@ public interface UserService {
     User create(User u);
 
     List<User> findByName(String name);
+
+    List<User> findFollowers(Integer userId);
+
+    User findByIdNoDetail(Integer userId);
 }

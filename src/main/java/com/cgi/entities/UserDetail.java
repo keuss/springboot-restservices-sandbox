@@ -9,6 +9,8 @@ public class UserDetail {
     private long postsNb;
     private long followersNb;
     private long subscribersNb;
+
+    //FIXME : very bad to store with the UserDetail for performance, just here for example
     private List<Integer> followers;
     private List<Integer> subscribers;
 
@@ -56,19 +58,19 @@ public class UserDetail {
         this.subscribersNb = subscribersNb;
     }
 
-    public List getFollowers() {
+    public List<Integer> getFollowers() {
         return followers;
     }
 
-    public void setFollowers(List followers) {
+    public void setFollowers(List<Integer> followers) {
         this.followers = followers;
     }
 
-    public List getSubscribers() {
+    public List<Integer> getSubscribers() {
         return subscribers;
     }
 
-    public void setSubscribers(List subscribers) {
+    public void setSubscribers(List<Integer> subscribers) {
         this.subscribers = subscribers;
     }
 

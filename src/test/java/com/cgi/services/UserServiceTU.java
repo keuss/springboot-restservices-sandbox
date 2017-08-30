@@ -2,7 +2,6 @@ package com.cgi.services;
 
 import com.cgi.entities.User;
 import com.cgi.entities.UserDetail;
-import com.google.common.primitives.Ints;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,14 +28,11 @@ public class UserServiceTU {
     @Test
     public void createUserTest() throws Exception {
 
-        int[] followers = {2,3};
-        int[] subscribers = {10,20,30};
-
         // create
         User user = new User();
         user.setName("steve in memory");
         user.setEmail("steve-mem@gmail.com");
-        user.setUserDetail(new UserDetail(1, 2, 3, Ints.asList(followers), Ints.asList(subscribers)));
+        user.setUserDetail(new UserDetail(1, 2, 3, Arrays.asList(2, 3), Arrays.asList(10,20,30)));
         userService.create(user);
 
         Optional<User> mayBeUser = userService.findAll().stream().filter(u -> u.equals(user)).findFirst();
@@ -46,7 +42,19 @@ public class UserServiceTU {
 
     @Test
     public void findByNameTest() throws Exception {
-        LOGGER.info("##### {}", userService.findByName("gui").get(0).getUserDetail());
-        Assert.assertTrue(!userService.findByName("gui").isEmpty());
+        //LOGGER.info("##### {}", userService.findByName("gui0").get(0).getUserDetail());
+        Assert.assertTrue(!userService.findByName("gui0").isEmpty());
+    }
+
+    @Test
+    public void findByIdTest() throws Exception {
+        //LOGGER.info("##### {}", userService.findByIdNoDetail(0));
+        Assert.assertEquals(userService.findByIdNoDetail(0).getName(), "gui0");
+    }
+
+    @Test
+    public void findFollowersTest() throws Exception {
+        //LOGGER.info("##### {}", userService.findFollowers(0));
+        Assert.assertEquals(userService.findFollowers(0).size(), 3);
     }
 }

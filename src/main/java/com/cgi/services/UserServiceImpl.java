@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service("userService")
 public class UserServiceImpl implements UserService {
@@ -33,5 +34,19 @@ public class UserServiceImpl implements UserService {
     public List<User> findByName(String name) {
         LOGGER.info("Call findByName with {}", name);
         return userRepository.findByName(name);
+    }
+
+    @Override
+    public User findByIdNoDetail(Integer userId) {
+        LOGGER.info("Call findByIdNoDetail with userId {}", userId);
+        return userRepository.findByIdNoDetail(userId);
+    }
+
+    @Override
+    public List<User> findFollowers(Integer userId) {
+        LOGGER.info("Call findFollowers with userId {}", userId);
+        return userRepository.findById(userId).getUserDetail().getFollowers()
+                .parallelStream()
+                .map(id -> userRepository.findByIdNoDetail(id)).collect(Collectors.toList());
     }
 }
