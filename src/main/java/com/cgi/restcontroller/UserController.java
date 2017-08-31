@@ -27,12 +27,12 @@ public class UserController {
         return userService.findAll();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value="/user/followers/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.GET, value="/user/suggestions/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
-    public List<User> findFollowers(@PathVariable("userId") Integer userId) {
-        LOGGER.info("Call for findFollowers ...");
+    public List<User> findSuggestions(@PathVariable("userId") Integer userId) {
+        LOGGER.info("Call for findSuggestions ...");
         //FIXME : probably add paging stuff !
-        return userService.findFollowers(userId);
+        return userService.findSuggestions(userId);
     }
 
     @RequestMapping(method = RequestMethod.POST, value="/user", headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)

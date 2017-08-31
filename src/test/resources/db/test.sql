@@ -1,4 +1,4 @@
-INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui0', 'gui@gmail.com', '{"postsNb": 10, "followersNb": 3, "subscribersNb": 2, "followers": [2, 3, 4], "subscribers": [10, 20]}');
-INSERT INTO public.users(id, name, email, userdetail) VALUES (2, 'gui1', 'gui@gmail.com', '{"postsNb": 0, "followersNb": 0, "subscribersNb": 0, "followers": [], "subscribers": []}');
-INSERT INTO public.users(id, name, email, userdetail) VALUES (3, 'gui2', 'gui@gmail.com', '{"postsNb": 0, "followersNb": 0, "subscribersNb": 0, "followers": [], "subscribers": []}');
-INSERT INTO public.users(id, name, email, userdetail) VALUES (4, 'gui3', 'gui@gmail.com', '{"postsNb": 0, "followersNb": 0, "subscribersNb": 0, "followers": [], "subscribers": []}');
+INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui0', 'gui@gmail.com', '{"postsNb": 10, "followersNb": 3, "subscribersNb": 2, "suggestions": [2, 3, 4]}');
+INSERT INTO public.users(id, name, email, userdetail) VALUES (2, 'gui1', 'gui@gmail.com', '{"postsNb": 0, "followersNb": 0, "subscribersNb": 0, "suggestions": []}');
+INSERT INTO public.users(id, name, email, userdetail) VALUES (3, 'gui2', 'gui@gmail.com', '{"postsNb": 0, "followersNb": 0, "subscribersNb": 0, "suggestions": []}');
+INSERT INTO public.users(id, name, email, userdetail) VALUES (4, 'gui3', 'gui@gmail.com', '{"postsNb": 0, "followersNb": 0, "subscribersNb": 0, "suggestions": []}');

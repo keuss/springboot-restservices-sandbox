@@ -11,8 +11,7 @@ public class UserDetail {
     private long subscribersNb;
 
     //FIXME : very bad to store with the UserDetail for performance, just here for example
-    private List<Integer> followers;
-    private List<Integer> subscribers;
+    private List<Integer> suggestions;
 
     public UserDetail() {
 
@@ -22,16 +21,14 @@ public class UserDetail {
         this.postsNb = postsNb;
         this.followersNb = followersNb;
         this.subscribersNb = subscribersNb;
-        this.followers = new ArrayList<>();
-        this.subscribers = new ArrayList<>();
+        this.suggestions = new ArrayList<>();
     }
 
-    public UserDetail(long postsNb, long followersNb, long subscribersNb, List<Integer> followers, List<Integer> subscribers) {
+    public UserDetail(long postsNb, long followersNb, long subscribersNb, List<Integer> suggestions) {
         this.postsNb = postsNb;
         this.followersNb = followersNb;
         this.subscribersNb = subscribersNb;
-        this.followers = followers;
-        this.subscribers = subscribers;
+        this.suggestions = suggestions;
     }
 
     public long getPostsNb() {
@@ -58,20 +55,12 @@ public class UserDetail {
         this.subscribersNb = subscribersNb;
     }
 
-    public List<Integer> getFollowers() {
-        return followers;
+    public List<Integer> getSuggestions() {
+        return suggestions;
     }
 
-    public void setFollowers(List<Integer> followers) {
-        this.followers = followers;
-    }
-
-    public List<Integer> getSubscribers() {
-        return subscribers;
-    }
-
-    public void setSubscribers(List<Integer> subscribers) {
-        this.subscribers = subscribers;
+    public void setSuggestions(List<Integer> suggestions) {
+        this.suggestions = suggestions;
     }
 
     @Override
@@ -80,8 +69,7 @@ public class UserDetail {
                 "postsNb=" + postsNb +
                 ", followersNb=" + followersNb +
                 ", subscribersNb=" + subscribersNb +
-                ", followers=" + followers +
-                ", subscribers=" + subscribers +
+                ", suggestions=" + suggestions +
                 '}';
     }
 }

@@ -43,9 +43,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<User> findFollowers(Integer userId) {
-        LOGGER.info("Call findFollowers with userId {}", userId);
-        return userRepository.findById(userId).getUserDetail().getFollowers()
+    public List<User> findSuggestions(Integer userId) {
+        LOGGER.info("Call findSuggestions with userId {}", userId);
+        return userRepository.findById(userId).getUserDetail().getSuggestions()
                 .parallelStream()
                 .map(id -> userRepository.findByIdNoDetail(id)).collect(Collectors.toList());
     }

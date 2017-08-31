@@ -13,7 +13,7 @@ public interface UserService {
 
     List<User> findByName(String name);
 
-    List<User> findFollowers(Integer userId);
+    List<User> findSuggestions(Integer userId);
 
     User findByIdNoDetail(Integer userId);
 }

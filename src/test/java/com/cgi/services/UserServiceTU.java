@@ -32,7 +32,7 @@ public class UserServiceTU {
         User user = new User();
         user.setName("steve in memory");
         user.setEmail("steve-mem@gmail.com");
-        user.setUserDetail(new UserDetail(1, 2, 3, Arrays.asList(2, 3), Arrays.asList(10,20,30)));
+        user.setUserDetail(new UserDetail(1, 2, 3, Arrays.asList(2, 3)));
         userService.create(user);
 
         Optional<User> mayBeUser = userService.findAll().stream().filter(u -> u.equals(user)).findFirst();
@@ -53,8 +53,8 @@ public class UserServiceTU {
     }
 
     @Test
-    public void findFollowersTest() throws Exception {
-        //LOGGER.info("##### {}", userService.findFollowers(0));
-        Assert.assertEquals(userService.findFollowers(0).size(), 3);
+    public void findSuggestionsTest() throws Exception {
+        //LOGGER.info("##### {}", userService.findSuggestions(0));
+        Assert.assertEquals(userService.findSuggestions(0).size(), 3);
     }
 }

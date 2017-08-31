@@ -30,7 +30,7 @@ public class UserServiceTI {
         User user = new User();
         user.setName("steve");
         user.setEmail("steve@gmail.com");
-        user.setUserDetail(new UserDetail(0, 2, 3, Arrays.asList(1, 2), Arrays.asList(10, 20, 30)));
+        user.setUserDetail(new UserDetail(0, 2, 3, Arrays.asList(1, 2)));
         userService.create(user);
 
         // userService.findAll().stream().forEach(System.out::println);
