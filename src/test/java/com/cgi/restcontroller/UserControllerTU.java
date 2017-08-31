@@ -33,7 +33,7 @@ public class UserControllerTU {
 
     @Test
     public void testFindSuggestions() throws Exception {
-        this.mockMvc.perform(get("/user/suggestions/{userId}", 0)).andDo(print()).andExpect(status().isOk())
+        this.mockMvc.perform(get("/users/{userId}/suggestions", 0)).andDo(print()).andExpect(status().isOk())
                 .andExpect(jsonPath("$").isArray());
     }
 

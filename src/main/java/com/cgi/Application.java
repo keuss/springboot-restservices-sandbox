@@ -27,7 +27,7 @@ public class Application {
         return new Docket(DocumentationType.SWAGGER_2)
                 .groupName("users")
                 .select()
-                .paths(regex("/user.*"))
+                .paths(regex("/users.*"))
                 .build()
                 .apiInfo(apiInfo());
     }
