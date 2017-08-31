@@ -25,18 +25,17 @@ INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gma
 ## JSON user
 
 ```
-{
-	"id": 0,
-	"name": "gui",
-	"email": "gui@gmail.com",
-	"userDetail": {
-		"postsNb": 11,
-		"followersNb": 5,
-		"subscribersNb": 3,
-		"followers": [1, 2, 3, 4, 5],
-		"subscribers": [10, 20, 30]
-	}
-}
+ {
+    "id": 0,
+    "name": "gui",
+    "email": "gui@gmail.com",
+    "userDetail": {
+      "postsNb": 11,
+      "followersNb": 2,
+      "subscribersNb": 0,
+      "suggestions": [2, 3]
+    }
+  }
 ```
 
 ## Links
