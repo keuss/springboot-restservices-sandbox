@@ -9,7 +9,7 @@ springboot-restservices-sandbox with :
 ## Build and RUN
 
  - `mvn clean package`
- - `java -jar target/springboot-restservices-sandbox-0.1.0.jar` (use Embedded Tomcat), see http://localhost:8080/users
+ - `java -jar target/springboot-restservices-sandbox-0.1.0.jar` (use Embedded Tomcat), see http://localhost:8080/users (to change port : `-Dserver.port=XXXX`)
  
 ## Tests services & controllers
 
