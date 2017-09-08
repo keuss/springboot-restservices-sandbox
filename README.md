@@ -9,12 +9,12 @@ springboot-restservices-sandbox with :
 ## Build and RUN
 
  - `mvn clean package`
- - `java -jar target/springboot-restservices-sandbox-0.1.0.jar` (use Embedded Tomcat), see http://localhost:8080/users (to change port : `-Dserver.port=XXXX`)
+ - `java -jar target/springboot-restservices-sandbox-0.1.0.jar` (use Embedded Tomcat), see http://localhost:8080/api/users (to change port : `-Dserver.port=XXXX`)
  
 ## Tests services & controllers
 
  - TU with H2 (see test.properties and test.sql for loading H2)
- - Swagger : http://localhost:8080/swagger-ui.html
+ - Swagger : http://localhost:8080/api/swagger-ui.html
  
 ## DATA h2
 
@@ -25,14 +25,14 @@ INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gma
 ## JSON user
 
 ```
- {
+  {
     "id": 0,
     "name": "gui",
     "email": "gui@gmail.com",
     "userDetail": {
       "postsNb": 11,
       "followersNb": 2,
-      "subscribersNb": 0,
+      "followingNb": 0,
       "suggestions": [2, 3]
     }
   }
