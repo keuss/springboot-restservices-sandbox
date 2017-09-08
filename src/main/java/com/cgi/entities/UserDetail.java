@@ -8,7 +8,7 @@ public class UserDetail {
 
     private long postsNb;
     private long followersNb;
-    private long subscribersNb;
+    private long followingNb;
 
     //FIXME : very bad to store with the UserDetail for performance, just here for example
     private List<Integer> suggestions;
@@ -17,17 +17,17 @@ public class UserDetail {
 
     }
 
-    public UserDetail(long postsNb, long followersNb, long subscribersNb) {
+    public UserDetail(long postsNb, long followersNb, long followingNb) {
         this.postsNb = postsNb;
         this.followersNb = followersNb;
-        this.subscribersNb = subscribersNb;
+        this.followingNb = followingNb;
         this.suggestions = new ArrayList<>();
     }
 
-    public UserDetail(long postsNb, long followersNb, long subscribersNb, List<Integer> suggestions) {
+    public UserDetail(long postsNb, long followersNb, long followingNb, List<Integer> suggestions) {
         this.postsNb = postsNb;
         this.followersNb = followersNb;
-        this.subscribersNb = subscribersNb;
+        this.followingNb = followingNb;
         this.suggestions = suggestions;
     }
 
@@ -47,12 +47,12 @@ public class UserDetail {
         this.followersNb = followersNb;
     }
 
-    public long getSubscribersNb() {
-        return subscribersNb;
+    public long getFollowingNb() {
+        return followingNb;
     }
 
-    public void setSubscribersNb(long subscribersNb) {
-        this.subscribersNb = subscribersNb;
+    public void setFollowingNb(long followingNb) {
+        this.followingNb = followingNb;
     }
 
     public List<Integer> getSuggestions() {
@@ -68,7 +68,7 @@ public class UserDetail {
         return "UserDetail{" +
                 "postsNb=" + postsNb +
                 ", followersNb=" + followersNb +
-                ", subscribersNb=" + subscribersNb +
+                ", followingNb=" + followingNb +
                 ", suggestions=" + suggestions +
                 '}';
     }
