@@ -2,6 +2,7 @@ package com.cgi.services;
 
 import com.cgi.entities.User;
 import com.cgi.repositories.UserRepository;
+import com.cgi.utils.UserNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,33 +21,47 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findAll() {
-        LOGGER.info("Call findAll");
         return userRepository.findAll();
     }
 
     @Override
     public User create(User u) {
-        LOGGER.info("Call create with {}", u);
         return userRepository.save(u);
     }
 
     @Override
     public List<User> findByName(String name) {
-        LOGGER.info("Call findByName with {}", name);
         return userRepository.findByName(name);
     }
 
     @Override
     public User findByIdNoDetail(Integer userId) {
-        LOGGER.info("Call findByIdNoDetail with userId {}", userId);
         return userRepository.findByIdNoDetail(userId);
     }
 
+    private User findUser(Integer userId) throws UserNotFoundException {
+        User u = userRepository.findOne(userId);
+        if(u == null) {
+            LOGGER.warn("User id {} not found", userId);
+            throw new UserNotFoundException("User not found !");
+        }
+        return u;
+    }
+
     @Override
-    public List<User> findSuggestions(Integer userId) {
-        LOGGER.info("Call findSuggestions with userId {}", userId);
-        return userRepository.findById(userId).getUserDetail().getSuggestions()
+    public List<User> findSuggestions(Integer userId) throws UserNotFoundException {
+        return findUser(userId).getUserDetail().getSuggestions()
                 .parallelStream()
-                .map(id -> userRepository.findByIdNoDetail(id)).collect(Collectors.toList());
+                .map(id -> userRepository.findByIdNoDetail(id))
+                .filter(user -> user != null)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public void deleteSuggestion(Integer userId, Integer userIdSuggestion) throws UserNotFoundException {
+        User u =  findUser(userId);
+        List<Integer> suggestions = u.getUserDetail().getSuggestions().stream().filter(p -> p != userIdSuggestion).collect(Collectors.toList());
+        u.getUserDetail().setSuggestions(suggestions);
+        userRepository.save(u);
     }
 }

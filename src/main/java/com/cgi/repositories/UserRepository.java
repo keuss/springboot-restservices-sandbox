@@ -19,5 +19,4 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     @Query("select new com.cgi.entities.User(u.id, u.name, u.email) from User u where u.id = ?1")
     User findByIdNoDetail(Integer id);
 
-    User findById(Integer id);
 }
