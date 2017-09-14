@@ -39,6 +39,11 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <dependency>
+      <groupId>com.flipkart.zjsonpatch</groupId>
+      <artifactId>zjsonpatch</artifactId>
+      <version>0.3.6</version>
+    </dependency>
     <!-- Testing starter -->
     <!-- see https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html -->
     <dependency>

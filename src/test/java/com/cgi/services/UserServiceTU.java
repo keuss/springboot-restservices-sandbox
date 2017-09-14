@@ -32,7 +32,7 @@ public class UserServiceTU {
         User user = new User();
         user.setName("steve in memory");
         user.setEmail("steve-mem@gmail.com");
-        user.setUserDetail(new UserDetail(1, 2, 3, Arrays.asList(2, 3)));
+        user.setUserDetail(new UserDetail(1L, 2L, 3L, Arrays.asList(2, 3)));
         userService.create(user);
 
         Optional<User> mayBeUser = userService.findAll().stream().filter(u -> u.equals(user)).findFirst();

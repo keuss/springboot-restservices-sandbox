@@ -1,6 +1,7 @@
 package com.cgi.services;
 
 import com.cgi.entities.User;
+import com.cgi.utils.UserException;
 import com.cgi.utils.UserNotFoundException;
 
 import java.util.List;
@@ -19,4 +20,7 @@ public interface UserService {
     User findByIdNoDetail(Integer userId);
 
     void deleteSuggestion(Integer userId, Integer userIdSuggestion) throws UserNotFoundException;
+
+    void patchUser(Integer userId, String patch) throws UserNotFoundException, UserException;
+
 }

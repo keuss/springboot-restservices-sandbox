@@ -6,9 +6,9 @@ import java.util.List;
 
 public class UserDetail {
 
-    private long postsNb;
-    private long followersNb;
-    private long followingNb;
+    private Long postsNb;
+    private Long followersNb;
+    private Long followingNb;
 
     //FIXME : very bad to store with the UserDetail for performance, just here for example
     private List<Integer> suggestions;
@@ -17,41 +17,41 @@ public class UserDetail {
 
     }
 
-    public UserDetail(long postsNb, long followersNb, long followingNb) {
+    public UserDetail(Long postsNb, Long followersNb, Long followingNb) {
         this.postsNb = postsNb;
         this.followersNb = followersNb;
         this.followingNb = followingNb;
         this.suggestions = new ArrayList<>();
     }
 
-    public UserDetail(long postsNb, long followersNb, long followingNb, List<Integer> suggestions) {
+    public UserDetail(Long postsNb, Long followersNb, Long followingNb, List<Integer> suggestions) {
         this.postsNb = postsNb;
         this.followersNb = followersNb;
         this.followingNb = followingNb;
         this.suggestions = suggestions;
     }
 
-    public long getPostsNb() {
+    public Long getPostsNb() {
         return postsNb;
     }
 
-    public void setPostsNb(long postsNb) {
+    public void setPostsNb(Long postsNb) {
         this.postsNb = postsNb;
     }
 
-    public long getFollowersNb() {
+    public Long getFollowersNb() {
         return followersNb;
     }
 
-    public void setFollowersNb(long followersNb) {
+    public void setFollowersNb(Long followersNb) {
         this.followersNb = followersNb;
     }
 
-    public long getFollowingNb() {
+    public Long getFollowingNb() {
         return followingNb;
     }
 
-    public void setFollowingNb(long followingNb) {
+    public void setFollowingNb(Long followingNb) {
         this.followingNb = followingNb;
     }
 

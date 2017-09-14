@@ -3,7 +3,6 @@ package com.cgi.restcontroller;
 import com.cgi.entities.User;
 import com.cgi.services.UserService;
 import com.cgi.utils.BadRequestException;
-import com.cgi.utils.UserNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,14 +29,9 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/users/{userId}/suggestions", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> findSuggestions(@PathVariable("userId") Integer userId) {
+    public List<User> findSuggestions(@PathVariable("userId") Integer userId) {
         //FIXME : probably add paging stuff !
-        try {
-            return new ResponseEntity<>(userService.findSuggestions(userId), HttpStatus.OK);
-        } catch (UserNotFoundException e) {
-            LOGGER.warn("Unable to find suggestions for userId " + userId);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        return userService.findSuggestions(userId);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/users", headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -51,12 +45,26 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.DELETE, value = "/users/{userId}/suggestions/{userIdSuggestion}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Void> deleteSuggestion(@PathVariable("userId") Integer userId, @PathVariable("userIdSuggestion") Integer userIdSuggestion) {
-        try {
-            userService.deleteSuggestion(userId, userIdSuggestion);
-            return new ResponseEntity<>(HttpStatus.OK);
-        } catch (UserNotFoundException e) {
-            LOGGER.warn("Unable to delete suggestion for userId " + userId);
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
+        userService.deleteSuggestion(userId, userIdSuggestion);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+
+    /**
+     *
+     * @param userId
+     * @param patchPayload
+     *  [
+            { "op": "replace", "path": "/userDetail/followingNb", "value": 111 }
+        ]
+
+        [
+            { "op": "replace", "path": "/userDetail", "value": {"postsNb": 111,"followersNb": 222,"followingNb": 333,"suggestions": [444]} }
+        ]
+     * @return
+     */
+    @RequestMapping(method = RequestMethod.PATCH, value = "/users/{userId}", headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<Void> updateUser(@PathVariable("userId") Integer userId, @RequestBody String patchPayload) {
+        userService.patchUser(userId, patchPayload);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
