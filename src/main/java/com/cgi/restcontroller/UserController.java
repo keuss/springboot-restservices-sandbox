@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.concurrent.Future;
 
 @RestController
 public class UserController {
@@ -36,7 +37,7 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/users", headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> addUser(@Valid @RequestBody User user, BindingResult bindingResults) {
-        if (bindingResults.hasErrors() || user == null || user.getName() == null || user.getName().isEmpty()) {
+        if (bindingResults.hasErrors()) {
             throw new BadRequestException();
         } else {
             return new ResponseEntity<>(this.userService.create(user), HttpStatus.CREATED);
@@ -63,8 +64,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(method = RequestMethod.PATCH, value = "/users/{userId}", headers = {"Content-type=application/json"}, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Void> updateUser(@PathVariable("userId") Integer userId, @RequestBody String patchPayload) {
-        userService.patchUser(userId, patchPayload);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    public Future<User> updateUser(@PathVariable("userId") Integer userId, @RequestBody String patchPayload) {
+        return userService.patchUser(userId, patchPayload);
     }
 }

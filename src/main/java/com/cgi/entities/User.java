@@ -3,6 +3,7 @@ package com.cgi.entities;
 import com.cgi.utils.JpaJsonConverter;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "users")
@@ -15,9 +16,11 @@ public class User {
     private Integer id;
 
     @Column(name = "name")
+    @NotNull
     private String name;
 
     @Column(name = "email")
+    @NotNull
     private String email;
 
     @Column(name="userdetail")

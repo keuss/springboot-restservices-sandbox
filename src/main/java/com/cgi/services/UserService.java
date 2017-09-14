@@ -1,10 +1,9 @@
 package com.cgi.services;
 
 import com.cgi.entities.User;
-import com.cgi.utils.UserException;
-import com.cgi.utils.UserNotFoundException;
 
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 
 public interface UserService {
@@ -15,12 +14,12 @@ public interface UserService {
 
     List<User> findByName(String name);
 
-    List<User> findSuggestions(Integer userId) throws UserNotFoundException;
+    List<User> findSuggestions(Integer userId);
 
     User findByIdNoDetail(Integer userId);
 
-    void deleteSuggestion(Integer userId, Integer userIdSuggestion) throws UserNotFoundException;
+    void deleteSuggestion(Integer userId, Integer userIdSuggestion);
 
-    void patchUser(Integer userId, String patch) throws UserNotFoundException, UserException;
+    CompletableFuture<User> patchUser(Integer userId, String patch);
 
 }
