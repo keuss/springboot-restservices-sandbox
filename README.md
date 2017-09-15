@@ -36,6 +36,29 @@ INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gma
       "suggestions": [2, 3]
     }
   }
+  
+  Path examples :
+  
+  [{
+  	"op": "replace",
+  	"path": "/userDetail/followingNb",
+  	"value": 111
+  }]
+
+  Or :
+  
+  [{
+   "op": "replace",
+   "path": "/userDetail",
+   "value": {
+    "postsNb": 111,
+    "followersNb": 222,
+    "followingNb": 333,
+    "suggestions": [444]
+   }
+  }]
+  
+  
 ```
 
 ## Links
