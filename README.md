@@ -2,7 +2,7 @@
 
 springboot-restservices-sandbox with :
 
- - REST basic controller (GET & POST)
+ - REST controllers (GET & POST)
  - Spring DATA add PostgreSQL database + h2 for testing (branch `h2-runtime` for h2 in runtime)
  - Swagger2
  
