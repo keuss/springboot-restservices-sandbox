@@ -37,7 +37,7 @@ INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gma
     }
   }
   
-  Path examples :
+  Patch examples :
   
   [{
   	"op": "replace",
