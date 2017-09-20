@@ -45,3 +45,4 @@ INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gma
  - https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
  - https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
  - https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-sql.html
+ - http://jsonpatch.com/
