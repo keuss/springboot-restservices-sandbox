@@ -1,7 +1,9 @@
 package com.cgi.services;
 
 import com.cgi.entities.User;
+import com.cgi.entities.UserDetail;
 import com.cgi.repositories.UserRepository;
+import com.cgi.utils.UserNotFoundException;
 import com.flipkart.zjsonpatch.JsonPatch;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,7 +42,17 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByIdNoDetail(Integer userId) {
-        return userRepository.findByIdNoDetail(userId);
+        User u = userRepository.findByIdNoDetail(userId);
+        if(u == null) {
+            LOGGER.warn("User id {} not found", userId);
+            throw new UserNotFoundException();
+        }
+        return u;
+    }
+
+    @Override
+    public UserDetail getUserDetail(Integer userId) {
+        return userServiceHelper.findUser(userId).getUserDetail();
     }
 
     @Override

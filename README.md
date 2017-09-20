@@ -2,7 +2,7 @@
 
 springboot-restservices-sandbox with :
 
- - REST controllers (GET & POST)
+ - REST controllers (GET, POST, DELETE, and PATCH)
  - Spring DATA add PostgreSQL database + h2 for testing (branch `h2-runtime` for h2 in runtime)
  - Swagger2
  
@@ -56,6 +56,16 @@ INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gma
     "followingNb": 333,
     "suggestions": [444]
    }
+  }]
+
+  Or (Adds a value to an object or inserts it into an array.
+  In the case of an array, the value is inserted before the given index.
+  The - character can be used instead of an index to insert at the end of an array. see http://jsonpatch.com/) :
+
+  [{
+  	"op": "add",
+  	"path": "/userDetail/suggestions/-",
+  	"value": 4
   }]
   
   

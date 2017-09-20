@@ -3,7 +3,7 @@ package com.cgi.services;
 
 import com.cgi.entities.User;
 import com.cgi.repositories.UserRepository;
-import com.cgi.utils.UserException;
+import com.cgi.utils.UserJsonException;
 import com.cgi.utils.UserNotFoundException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -46,7 +46,7 @@ public class UserServiceHelper {
             try {
                 return jacksonObjectMapper.readTree(json);
             } catch (IOException e) {
-                throw new UserException();
+                throw new UserJsonException();
             }
         });
     }
@@ -55,7 +55,7 @@ public class UserServiceHelper {
         try {
             return jacksonObjectMapper.treeToValue(target, User.class);
         } catch (JsonProcessingException e) {
-            throw new UserException();
+            throw new UserJsonException();
         }
     }
 }

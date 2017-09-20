@@ -2,6 +2,7 @@ package com.cgi.services;
 
 import com.cgi.entities.User;
 import com.cgi.entities.UserDetail;
+import com.cgi.utils.UserNotFoundException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -52,9 +53,24 @@ public class UserServiceTU {
         Assert.assertEquals(userService.findByIdNoDetail(0).getName(), "gui0");
     }
 
+    @Test(expected = UserNotFoundException.class)
+    public void findByIdTestNotFound() throws Exception {
+        userService.findByIdNoDetail(110);
+    }
+
     @Test
     public void findSuggestionsTest() throws Exception {
         //LOGGER.info("##### {}", userService.findSuggestions(0));
         Assert.assertEquals(userService.findSuggestions(0).size(), 3);
+    }
+
+    @Test
+    public void getUserDetailTest() throws Exception {
+        Assert.assertEquals(userService.getUserDetail(0).getPostsNb().longValue(), 10);
+    }
+
+    @Test(expected = UserNotFoundException.class)
+    public void getUserDetailTestNotFound() throws Exception {
+        userService.getUserDetail(110);
     }
 }

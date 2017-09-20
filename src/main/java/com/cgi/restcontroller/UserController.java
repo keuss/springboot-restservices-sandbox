@@ -1,10 +1,9 @@
 package com.cgi.restcontroller;
 
 import com.cgi.entities.User;
+import com.cgi.entities.UserDetail;
 import com.cgi.services.UserService;
 import com.cgi.utils.BadRequestException;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,10 +18,18 @@ import java.util.concurrent.Future;
 @RestController
 public class UserController {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(UserController.class);
-
     @Autowired
     private UserService userService;
+
+    @RequestMapping(method = RequestMethod.GET, value = "/users/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public User getUser(@PathVariable("userId") Integer userId) {
+        return userService.findByIdNoDetail(userId);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/users/{userId}/detail", produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserDetail getUserDetail(@PathVariable("userId") Integer userId) {
+        return userService.getUserDetail(userId);
+    }
 
     @RequestMapping(method = RequestMethod.GET, value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> findAll() {
@@ -60,6 +67,14 @@ public class UserController {
 
         [
             { "op": "replace", "path": "/userDetail", "value": {"postsNb": 111,"followersNb": 222,"followingNb": 333,"suggestions": [444]} }
+        ]
+
+        [
+            {
+                "op": "add",
+                "path": "/userDetail/suggestions/-",
+                "value": 4
+            }
         ]
      * @return
      */

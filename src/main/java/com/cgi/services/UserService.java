@@ -1,6 +1,7 @@
 package com.cgi.services;
 
 import com.cgi.entities.User;
+import com.cgi.entities.UserDetail;
 
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
@@ -21,5 +22,7 @@ public interface UserService {
     void deleteSuggestion(Integer userId, Integer userIdSuggestion);
 
     CompletableFuture<User> patchUser(Integer userId, String patch);
+
+    UserDetail getUserDetail(Integer userId);
 
 }
