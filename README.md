@@ -71,6 +71,24 @@ INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gma
   
 ```
 
+##DevTools
+
+Add :
+
+```
+<dependencies>
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-devtools</artifactId>
+        <optional>true</optional>
+    </dependency>
+</dependencies>
+```
+
+ - https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html
+ - https://github.com/spring-projects/spring-boot/issues/3315
+ - With IDEA : https://cloud.githubusercontent.com/assets/1175891/8324625/b072e22e-1a52-11e5-8441-adfbfca9670c.gif
+
 ## Links
 
  - https://github.com/spring-guides/gs-accessing-data-jpa
