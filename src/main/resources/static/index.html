@@ -4,13 +4,56 @@
         <title>Hello jQuery</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script src="js/hello.js"></script>
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+        <!-- CSS Reset -->
+        <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+
+        <!-- Milligram CSS minified -->
+        <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+
+        <!-- You should properly set the path from the main file. -->
     </head>
 
     <body>
         <div>
+            <h1>Heading</h1>
             <p class="user-id">The User ID is : </p>
             <p class="user-name">The User name is : </p>
             <p class="user-email">The User email is : </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Age</th>
+                        <th>Height</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Stephen Curry</td>
+                        <td>27</td>
+                        <td>1,91</td>
+                        <td>Akron, OH</td>
+                    </tr>
+                    <tr>
+                        <td>Klay Thompson</td>
+                        <td>25</td>
+                        <td>2,01</td>
+                        <td>Los Angeles, CA</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Default Button -->
+            <a class="button" href="#">Default Button</a>
+
+            <!-- Outlined Button -->
+            <button class="button button-outline">Outlined Button</button>
+
         </div>
     </body>
 </html>
