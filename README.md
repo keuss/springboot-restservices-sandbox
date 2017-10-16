@@ -87,7 +87,8 @@ Add :
 
  - https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html
  - https://github.com/spring-projects/spring-boot/issues/3315
- - ![](https://cloud.githubusercontent.com/assets/1175891/8324625/b072e22e-1a52-11e5-8441-adfbfca9670c.gif)
+ 
+![](https://cloud.githubusercontent.com/assets/1175891/8324625/b072e22e-1a52-11e5-8441-adfbfca9670c.gif)
 
 ## Links
 
