@@ -87,7 +87,7 @@ Add :
 
  - https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html
  - https://github.com/spring-projects/spring-boot/issues/3315
- - Run Application, Build -> Make Project
+ - With IDEA : Run 'Application', Build -> Make Project
  
 ![alt tag](./media/Run.PNG)
 
