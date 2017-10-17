@@ -1,0 +1,3 @@
+INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gmail.com', '{"postsNb": 11, "followersNb": 2, "followingNb": 0, "suggestions": [2, 3]}');
+INSERT INTO public.users(id, name, email, userdetail) VALUES (2, 'steve', 'steve@gmail.com', '{"postsNb": 411, "followersNb": 0, "followingNb": 3, "suggestions": []}');
+INSERT INTO public.users(id, name, email, userdetail) VALUES (3, 'marc', 'marc@gmail.com', '{"postsNb": 171, "followersNb": 0, "followingNb": 3, "suggestions": []}');
