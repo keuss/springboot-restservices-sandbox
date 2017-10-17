@@ -4,8 +4,8 @@
   "description": "springboot-restservices-sandbox with :",
   "main": "index.js",
   "scripts": {
-    "build": "browserify src/index.js -o build/app.js",
-    "watch": "watchify src/index.js -o build/app.js -v --debug"
+    "build": "browserify index.js -o build/app.js",
+    "watch": "watchify index.js -o build/app.js -v --debug"
   },
   "repository": {
     "type": "git",
