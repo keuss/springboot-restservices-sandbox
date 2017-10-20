@@ -39,6 +39,9 @@ var Welcome = (props) => {
           <div>
             <h2>Hello, world from {props.name} !</h2>
             <UserTab name={props.name} />
+            <a className="button" href="#">Default Button</a>
+            <button className="button button-outline">Outlined Button</button>
+            <input className="button button-clear" type="submit" value="Clear Button"/>
           </div>  
          )
 }
