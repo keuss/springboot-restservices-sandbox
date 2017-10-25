@@ -11,6 +11,19 @@ main {
     width: 8rem;
 }
 
+.round-profil {
+    border-radius: 50%;
+    width: 12rem;
+}
+
+header {
+    padding-top: 1.5rem;
+    border-bottom: 0.3rem;
+    border-bottom-color: #d1d1d1;
+    border-bottom-style: solid;
+}
+
 header > a {
     margin: 0.5rem;
 }
+
