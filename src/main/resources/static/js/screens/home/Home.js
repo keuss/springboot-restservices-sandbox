@@ -4,25 +4,35 @@ import UserPost from '../../components/UserPost'
 
 
 export default class Home extends React.Component {
+
+    constructor(props) {
+        super(props);
+        // initial state 
+        this.state = {
+            users: []
+        }
+    }
+
+    componentDidMount() {
+        fetch(`${window.location.origin}/api/users`)
+            .then(response => response.json())
+            .then(json => { this.setState({ users: json }) })
+            .catch(ex => { console.log('parsing failed', ex) })
+    }
+
+    renderPost(user) {
+        return (
+            <div key={user.id} className="row user-post">
+                <UserInfo user={ user } />
+                <UserPost />
+            </div>
+        )
+    }
+
     render() {
         return (
             <div className="container">
-                <div className="row">
-                    <UserInfo user={{ name: 'Marc M.', avatar: 'assets/images/img_avatar.png'}}/>
-                    <UserPost />
-                </div>
-                <div className="row">
-                    <UserInfo user={{ name: 'Steve D.', avatar: 'assets/images/img_avatar2.png' }} />
-                    <UserPost />
-                </div>
-                <div className="row">
-                    <UserInfo user={{ name: 'Lucy S.', avatar: 'assets/images/img_avatar2.png' }} />
-                    <UserPost />
-                </div>
-                <div className="row">
-                    <UserInfo user={{ name: 'Dave G.', avatar: 'assets/images/img_avatar.png' }} />
-                    <UserPost />
-                </div>
+                { this.state.users.map(u => this.renderPost(u)) }
             </div>
         )
     }

@@ -1,3 +1,5 @@
-INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gmail.com', '{"postsNb": 11, "followersNb": 2, "followingNb": 0, "suggestions": [2, 3]}');
+INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gmail.com', '{"postsNb": 11, "followersNb": 2, "followingNb": 0, "suggestions": [2, 3, 4, 5]}');
 INSERT INTO public.users(id, name, email, userdetail) VALUES (2, 'steve', 'steve@gmail.com', '{"postsNb": 411, "followersNb": 0, "followingNb": 3, "suggestions": []}');
 INSERT INTO public.users(id, name, email, userdetail) VALUES (3, 'marc', 'marc@gmail.com', '{"postsNb": 171, "followersNb": 0, "followingNb": 3, "suggestions": []}');
+INSERT INTO public.users(id, name, email, userdetail) VALUES (4, 'lucy', 'lucy@gmail.com', '{"postsNb": 54, "followersNb": 45, "followingNb": 3, "suggestions": []}');
+INSERT INTO public.users(id, name, email, userdetail) VALUES (5, 'july', 'july@gmail.com', '{"postsNb": 7, "followersNb": 0, "followingNb": 0, "suggestions": []}');

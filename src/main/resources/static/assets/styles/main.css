@@ -27,3 +27,25 @@ header > a {
     margin: 0.5rem;
 }
 
+.user-post {
+    padding: 1rem 0 1rem 0;
+    border-bottom: 0.1rem;
+    border-bottom-color: #d1d1d1;
+    border-bottom-style: dashed;
+}
+
+.user-suggestion {
+    padding: 1rem 0 1rem 0;
+    border-bottom: 0.1rem;
+    border-bottom-color: #d1d1d1;
+    border-bottom-style: dashed;
+}
+
+p.user-stats {
+    padding-top: 2rem;
+}
+
+p.user-stats > span {
+    padding-right: 3rem;
+}
+
