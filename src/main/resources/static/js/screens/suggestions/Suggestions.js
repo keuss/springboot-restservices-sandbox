@@ -1,5 +1,8 @@
 import React from 'react'
 import UserInfo from '../../components/UserInfo'
+import ButtonSuggestion from '../../components/ButtonSuggestion'
+
+import api from '../../shared/api'
 
 export default class Suggestions extends React.Component {
 
@@ -14,44 +17,36 @@ export default class Suggestions extends React.Component {
     componentDidMount() {
         // for test
         const userId = 0
-        fetch(`${window.location.origin}/api/users/${userId}/suggestions`)
-            .then(response => response.json())
+        api.get(`/users/${userId}/suggestions`)
             .then(json => { this.setState({ suggestions: json }) })
-            .catch(ex => { console.log('parsing failed', ex) })
+            .catch(ex => { console.log('Error fetch', ex) })
     }
 
     renderSuggestions(user) {
         return (
             <div key={user.id} className="row user-suggestion">
                 <UserInfo user={user} />
-                <div className="column column-80">
-                    <button className="button button-outline">Follow</button>
-                    <button className="button button-outline" onClick={this.onClickIgnore(user.id)}>Ignore</button>
-                </div>
+                <ButtonSuggestion handlerClickIgnore={this.handlerClickIgnore(user.id)} />
             </div>
         )
     }
 
-    onClickIgnore(userIdSuggestion) {
+    handlerClickIgnore(userIdSuggestion) {
         return () => {
             // For test
             const currentUserId = 0
-            fetch(`${window.location.origin}/api/users/${currentUserId}/suggestions/${userIdSuggestion}`, { method: 'delete' })
-                .then(response => {
-                    if(response.ok)
-                        this.setState({ suggestions: this.state.suggestions.filter(u => u.id != userIdSuggestion) })
-                    else
-                        alert("Erreur du serveur ...")
-                })
-                .catch(ex => { console.log('fetch failed', ex) })
+            api.delete(`/users/${currentUserId}/suggestions/${userIdSuggestion}`)
+                .then(() => { this.setState({ suggestions: this.state.suggestions.filter(u => u.id != userIdSuggestion) }) })
+                .catch(ex => { console.log('Error fetch', ex) })
         }
     }
 
     render() {
+        const row = this.state.suggestions.map(u => this.renderSuggestions(u))
         return (
             <div className="container">
                 <h2>Find friends !</h2>
-                {this.state.suggestions.map(u => this.renderSuggestions(u))}
+                {row}
             </div>
         )
     }

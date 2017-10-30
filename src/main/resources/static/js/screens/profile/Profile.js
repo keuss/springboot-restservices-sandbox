@@ -2,6 +2,8 @@ import React from 'react'
 import UserInfo from '../../components/UserInfo'
 import UserDetail from '../../components/UserDetail'
 
+import api from '../../shared/api'
+
 
 export default class Profile extends React.Component {
 
@@ -17,15 +19,13 @@ export default class Profile extends React.Component {
     componentDidMount() {
         // from the path `profile/:userId`
         const userId = this.props.params.userId
-        fetch(`${window.location.origin}/api/users/${userId}`)
-            .then(response => response.json())
+        api.get(`/users/${userId}`)
             .then(json => { this.setState({ user: json }) })
-            .catch(ex => { console.log('parsing failed', ex) })
+            .catch(ex => { console.log('Error fetch', ex) })
 
-        fetch(`${window.location.origin}/api/users/${userId}/detail`)
-            .then(response => response.json())
+        api.get(`/users/${userId}/detail`)
             .then(json => { this.setState({ userDetail: json }) })
-            .catch(ex => { console.log('parsing failed', ex) })
+            .catch(ex => { console.log('Error fetch', ex) })
     }
 
     render() {
