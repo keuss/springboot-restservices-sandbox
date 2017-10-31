@@ -24,7 +24,10 @@ Object.assign = require('object-assign')
 // 2) Promise
 // ------------------------------------
 if (typeof Promise === 'undefined') {
-    require('promise/lib/rejection-tracking').enable()
+    //By default, promises silence any unhandled rejections.
+    //You can enable logging of unhandled ReferenceErrors and TypeErrors via:require('promise/lib/rejection-tracking').enable()
+    // Due to the performance cost, you should only do this during development.
+    // Just a pure ES6 polyfill:
     window.Promise = require('promise/lib/es6-extensions.js')
     console.log("polyfill configuration done for Promise")
 }

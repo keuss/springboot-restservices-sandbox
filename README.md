@@ -3,13 +3,15 @@
 springboot-restservices-sandbox with :
 
  - REST controllers (GET, POST, DELETE, and PATCH)
- - Spring DATA add PostgreSQL database + h2 for testing (branch `h2-runtime` for h2 in runtime)
+ - Spring DATA and h2 database in runtime
  - Swagger2
+ - React JS frontend in springboot's resources
  
 ## Build and RUN
 
- - `mvn clean package`
+ - `mvn clean package` (build back and front with npm and browserify, all incluse)
  - `java -jar target/springboot-restservices-sandbox-0.1.0.jar` (use Embedded Tomcat), see http://localhost:8080/api/users (to change port : `-Dserver.port=XXXX`)
+ - for the IU : http://localhost:8080/api
  
 ## Tests services & controllers
 
@@ -19,8 +21,21 @@ springboot-restservices-sandbox with :
 ## DATA h2
 
 ```
-INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gmail.com', '{"postsNb": 10, "followersNb": 3, "subscribersNb": 2, "followers": [1, 2, 3], "subscribers": [10, 20]}');
+INSERT INTO public.users(id, name, email, userdetail) VALUES (0, 'gui', 'gui@gmail.com', '{"postsNb": 11, "followersNb": 2, "followingNb": 0, "suggestions": [2, 3, 4, 5]}');
 ```
+
+## Frontend
+
+ - react : https://github.com/facebook/react/
+ - react-router : https://github.com/ReactTraining/react-router
+ - whatwg-fetch : https://github.com/github/fetch (A window.fetch JavaScript polyfill.)
+ - promise : https://github.com/then/promise (Just a pure ES6 polyfill)
+ - redux (but not used) : https://github.com/reactjs/redux (Predictable state container for JavaScript apps)
+ - Browser-side require() the node.js way : https://github.com/browserify/browserify (To bundle app.js)
+ - Babel browserify transform : https://github.com/babel/babelify
+ - Watch mode for browserify builds : https://github.com/browserify/watchify
+
+![alt tag](./media/Front.PNG)
 
 ## JSON user
 
