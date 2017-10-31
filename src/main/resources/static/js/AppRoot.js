@@ -54,7 +54,7 @@ export default class AppRoot extends React.Component {
                             <img className="round-profil" src={"assets/images/img_avatar2.png"} />
                         </div>
                         <div className="column column-75">
-                            <h1>Java & Co Intagram</h1>
+                            <h1>Java & Co Instagram</h1>
                         </div>
                     </div>
                     <Link to="/home">Home</Link>
