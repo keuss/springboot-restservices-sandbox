@@ -19,11 +19,11 @@ export default class Profile extends React.Component {
     componentDidMount() {
         // from the path `profile/:userId`
         const userId = this.props.params.userId
-        api.get(`/users/${userId}`)
+        api.get(`users/${userId}`)
             .then(json => { this.setState({ user: json }) })
             .catch(ex => { console.log('Error fetch', ex) })
 
-        api.get(`/users/${userId}/detail`)
+        api.get(`users/${userId}/detail`)
             .then(json => { this.setState({ userDetail: json }) })
             .catch(ex => { console.log('Error fetch', ex) })
     }

@@ -5,7 +5,7 @@ export default class ButtonSuggestion extends React.Component {
         return (
             <div className="column column-80">
                 <button className="button button-outline">Follow</button>
-                <button className="button button-outline" onClick={this.props.handlerClickIgnore}>Ignore</button>
+                <button className="button button-outline" onClick={this.props.onClickIgnore}>Ignore</button>
             </div>
         )
     }

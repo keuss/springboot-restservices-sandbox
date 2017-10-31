@@ -46,5 +46,5 @@ class Api {
 }
 
 // Create instance
-const api = new Api(`${window.location.origin }/api`)
+const api = new Api(`${window.location.origin}/api`)
 export default api

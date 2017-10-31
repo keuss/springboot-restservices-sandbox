@@ -17,32 +17,32 @@ export default class Suggestions extends React.Component {
     componentDidMount() {
         // for test
         const userId = 0
-        api.get(`/users/${userId}/suggestions`)
+        api.get(`users/${userId}/suggestions`)
             .then(json => { this.setState({ suggestions: json }) })
             .catch(ex => { console.log('Error fetch', ex) })
     }
 
-    renderSuggestions(user) {
+    renderSuggestions(user, index) {
         return (
-            <div key={user.id} className="row user-suggestion">
+            <div key={index} className="row user-suggestion">
                 <UserInfo user={user} />
-                <ButtonSuggestion handlerClickIgnore={this.handlerClickIgnore(user.id)} />
+                <ButtonSuggestion onClickIgnore={this.handleClickIgnore(user.id)} />
             </div>
         )
     }
 
-    handlerClickIgnore(userIdSuggestion) {
+    handleClickIgnore(userIdSuggestion) {
         return () => {
             // For test
             const currentUserId = 0
-            api.delete(`/users/${currentUserId}/suggestions/${userIdSuggestion}`)
+            api.delete(`users/${currentUserId}/suggestions/${userIdSuggestion}`)
                 .then(() => { this.setState({ suggestions: this.state.suggestions.filter(u => u.id != userIdSuggestion) }) })
                 .catch(ex => { console.log('Error fetch', ex) })
         }
     }
 
     render() {
-        const row = this.state.suggestions.map(u => this.renderSuggestions(u))
+        const row = this.state.suggestions.map((u, index) => this.renderSuggestions(u, index))
         return (
             <div className="container">
                 <h2>Find friends !</h2>

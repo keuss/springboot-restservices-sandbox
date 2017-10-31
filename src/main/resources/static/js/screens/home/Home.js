@@ -16,14 +16,14 @@ export default class Home extends React.Component {
     }
 
     componentDidMount() {
-        api.get('/users')
+        api.get('users')
             .then(json => { this.setState({ users: json }) })
             .catch(ex => { console.log('Error fetch', ex) })
     }
 
-    renderPost(user) {
+    renderPost(user, index) {
         return (
-            <div key={user.id} className="row user-post">
+            <div key={index} className="row user-post">
                 <UserInfo user={user} />
                 <UserPost />
             </div>
@@ -31,7 +31,7 @@ export default class Home extends React.Component {
     }
 
     render() {
-        const rows = this.state.users.map(u => this.renderPost(u))
+        const rows = this.state.users.map((u, index) => this.renderPost(u, index))
         return (
             <div className="container">
                 {rows}
