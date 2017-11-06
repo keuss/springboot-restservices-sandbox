@@ -10,7 +10,7 @@ springboot-restservices-sandbox with :
 ## Build and RUN
 
  - `mvn clean package` (build back and front with npm and browserify, all incluse)
- - `java -jar target/springboot-restservices-sandbox-0.1.0.jar` (use Embedded Tomcat), see http://localhost:8080/api/users (to change port : `-Dserver.port=XXXX`)
+ - `java -jar target/springboot-restservices-sandbox-0.1.0.jar` (use Embedded Tomcat), see http://localhost:8080/api/users (to change port : `-Dserver.port=XXXX` for instance : `java -Dserver.port=8888 -jar target/springboot-restservices-sandbox-0.1.0.jar`)
  - for the IU : http://localhost:8080/api
  
 ## Tests services & controllers
